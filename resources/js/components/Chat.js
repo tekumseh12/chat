@@ -26,7 +26,7 @@ const Chat = (props) => {
   messageRef.current = message;
   const [heightOfFriendList, setheightOfFriendList] = useState(null);
 
-  const [topOfChatPanel, setTopOfChatPanel] = useState(null);
+  const [topOfChatPanel, setTopOfChatPanel] = useState([]);
   const topOfChatPanelRef = useRef(null);
   topOfChatPanelRef.current = topOfChatPanel;
 
@@ -45,7 +45,7 @@ const Chat = (props) => {
     }
     setRoomData([...on_channel.current]);
     adjustChatPanel()
-    // adjustChatPanel()
+    // adjustChatPanel()s
 
 
 
@@ -162,7 +162,7 @@ const Chat = (props) => {
     }
     setWidthOfChatPanel((documentWidth-180)/(on_channel.current.length+2)>195 ? 195:(documentWidth-180)/(on_channel.current.length+2));
     adjustChatPanel()
-    // adjustChatPanel()
+
     // adjustFriendList()
 
 

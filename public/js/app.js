@@ -2864,7 +2864,7 @@ var Chat = function Chat(props) {
       heightOfFriendList = _useState12[0],
       setheightOfFriendList = _useState12[1];
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState14 = _slicedToArray(_useState13, 2),
       topOfChatPanel = _useState14[0],
       setTopOfChatPanel = _useState14[1];
@@ -2886,7 +2886,7 @@ var Chat = function Chat(props) {
     }
 
     setRoomData(_toConsumableArray(on_channel.current));
-    adjustChatPanel(); // adjustChatPanel()
+    adjustChatPanel(); // adjustChatPanel()s
   };
 
   var _onChange = function onChange() {
@@ -3102,8 +3102,7 @@ var Chat = function Chat(props) {
               }
 
               setWidthOfChatPanel((documentWidth - 180) / (on_channel.current.length + 2) > 195 ? 195 : (documentWidth - 180) / (on_channel.current.length + 2));
-              adjustChatPanel(); // adjustChatPanel()
-              // adjustFriendList()
+              adjustChatPanel(); // adjustFriendList()
               // console.log(channel_on.current)
 
             case 4:
