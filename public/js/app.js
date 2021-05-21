@@ -2789,12 +2789,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -2802,6 +2796,12 @@ function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread n
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -2824,95 +2824,85 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 __webpack_require__(/*! ./bootstrap */ "./resources/js/components/bootstrap.js");
 
 var Chat = function Chat(props) {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(195),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({}),
       _useState2 = _slicedToArray(_useState, 2),
-      widthOfChatPanel = _useState2[0],
-      setWidthOfChatPanel = _useState2[1];
+      allmessages = _useState2[0],
+      setAllMessages = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+  var allmessRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+  allmessRef.current = allmessages;
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(195),
       _useState4 = _slicedToArray(_useState3, 2),
-      users = _useState4[0],
-      setUsers = _useState4[1];
+      widthOfChatPanel = _useState4[0],
+      setWidthOfChatPanel = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState6 = _slicedToArray(_useState5, 2),
+      users = _useState6[0],
+      setUsers = _useState6[1];
 
   var usersRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   usersRef.current = users;
   var chat_panel = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      room = _useState6[0],
-      setRoomData = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      room = _useState8[0],
+      setRoomData = _useState8[1];
 
   var on_channel = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)([]);
   on_channel.current = room;
 
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
-      _useState8 = _slicedToArray(_useState7, 2),
-      message = _useState8[0],
-      setMessage = _useState8[1];
-
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState10 = _slicedToArray(_useState9, 2),
-      hide = _useState10[0],
-      setHide = _useState10[1];
+      message = _useState10[0],
+      setMessage = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+      _useState12 = _slicedToArray(_useState11, 2),
+      hide = _useState12[0],
+      setHide = _useState12[1];
 
   var messageRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-  messageRef.current = message;
 
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
-      _useState12 = _slicedToArray(_useState11, 2),
-      heightOfFriendList = _useState12[0],
-      setheightOfFriendList = _useState12[1];
-
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(null),
       _useState14 = _slicedToArray(_useState13, 2),
-      topOfChatPanel = _useState14[0],
-      setTopOfChatPanel = _useState14[1];
+      heightOfFriendList = _useState14[0],
+      setheightOfFriendList = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState16 = _slicedToArray(_useState15, 2),
+      topOfChatPanel = _useState16[0],
+      setTopOfChatPanel = _useState16[1];
 
   var topOfChatPanelRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
-  topOfChatPanelRef.current = topOfChatPanel;
-
-  var foldUnfold = function foldUnfold(index) {
-    var panel = document.getElementsByClassName("chat_panel")[index];
-
-    if (panel.children[1].style.display == "block" || panel.children[1].style.display == "") {
-      for (var i = 1; i < panel.children.length; i++) {
-        panel.children[i].style.display = "none";
-      }
-    } else {
-      for (var _i2 = 1; _i2 < panel.children.length; _i2++) {
-        panel.children[_i2].style.display = "block";
-      }
-    }
-
-    setRoomData(_toConsumableArray(on_channel.current));
-    adjustChatPanel(); // adjustChatPanel()s
-  };
+  topOfChatPanelRef.current = topOfChatPanel; //-------------------------------------------------messages controller----------------------------------------------------
 
   var _onChange = function onChange() {
     setMessage(messageRef.current.value);
   };
 
-  var removeChannel = function removeChannel(index) {
-    console.log(index);
-    var panel = document.getElementsByClassName("chat_panel")[index];
-    var documentWidth = $(document).width();
-    on_channel.current.splice(index, 1);
-    setRoomData(_toConsumableArray(on_channel.current));
-    setWidthOfChatPanel((documentWidth - 180) / (on_channel.current.length + 2) > 195 ? 195 : (documentWidth - 180) / (on_channel.current.length + 2)); // unmountComponentAtNode(panel);
-  };
-
-  var adjustWidth = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+  var sendMessageHandler = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e, to) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              // adjust aby sa chat panel prispôsoboval poctu kolko ich je
-              console.log("width of chat panel adjusted");
-              $(".chat_panel").css("width", widthOfChatPanel);
+              if (!(e.charCode === 13)) {
+                _context.next = 4;
+                break;
+              }
 
-            case 2:
+              messageRef.current.value = "";
+              _context.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/sendMessage", {
+                "message": message,
+                "from": props.tsid,
+                "to": to[0]
+              });
+
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -2920,7 +2910,7 @@ var Chat = function Chat(props) {
       }, _callee);
     }));
 
-    return function adjustWidth() {
+    return function sendMessageHandler(_x, _x2) {
       return _ref.apply(this, arguments);
     };
   }();
@@ -2932,7 +2922,29 @@ var Chat = function Chat(props) {
           switch (_context2.prev = _context2.next) {
             case 0:
               Echo.channel("channel_name").listen('.chat', function (e) {
-                console.log(e.message);
+                console.log(e);
+
+                if (e.message.from_user != props.tsid) {
+                  var index = on_channel.current.findIndex(function (data) {
+                    return data == e.message.from_user;
+                  });
+                  var messagecontainer = document.getElementsByClassName("chat_panel")[index].children[1];
+                  var div = document.createElement("div");
+                  div.innerHTML = e.message.from_user + " " + e.message.message;
+                  messagecontainer.appendChild(div);
+                } else {
+                  var _index = on_channel.current.findIndex(function (data) {
+                    return data == e.message.to_user;
+                  });
+
+                  var _messagecontainer = document.getElementsByClassName("chat_panel")[_index].children[1];
+
+                  var _div = document.createElement("div");
+
+                  _div.innerHTML = e.message.from_user + " " + e.message.message;
+
+                  _messagecontainer.appendChild(_div);
+                }
               });
 
             case 1:
@@ -2948,10 +2960,176 @@ var Chat = function Chat(props) {
     };
   }();
 
+  var retrieveMessages = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var url, user, i, _yield$axios$post, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              url = "/api/retrieveMessages";
+              user = {};
+              i = 0;
+
+            case 3:
+              if (!(i < users.length)) {
+                _context3.next = 13;
+                break;
+              }
+
+              user[users[i].username] = [];
+              _context3.next = 7;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post(url, {
+                'current_user': props.tsid,
+                "target_user": users[i]
+              });
+
+            case 7:
+              _yield$axios$post = _context3.sent;
+              data = _yield$axios$post.data;
+              user[users[i].username].push(data);
+
+            case 10:
+              i++;
+              _context3.next = 3;
+              break;
+
+            case 13:
+              console.log("bb");
+              setAllMessages(user);
+              console.log(Object.keys(allmessRef.current).length, users.length);
+
+            case 16:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function retrieveMessages() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var showMessages = function showMessages(index) {
+    if (room.length != 0) {
+      console.log(room[index][0]);
+      var messagecontainer = document.getElementsByClassName("chat_panel")[index].children[1];
+
+      for (var i = 0; i < allmessages[room[index][0]][0].messages.length; i++) {
+        var div = document.createElement("div");
+        div.innerHTML = allmessages[room[index][0]][0].messages[i].from_user + " " + allmessages[room[index][0]][0].messages[i].message;
+        messagecontainer.appendChild(div);
+      }
+    }
+  }; //---------------------------------------------events with chat panel--------------------------------------------------------------
+
+
+  var removeChannel = function removeChannel(index) {
+    console.log(index);
+    var panel = document.getElementsByClassName("chat_panel")[index];
+    var documentWidth = $(document).width();
+    on_channel.current.splice(index, 1);
+    setRoomData(_toConsumableArray(on_channel.current));
+    setWidthOfChatPanel((documentWidth - 180) / (on_channel.current.length + 2) > 195 ? 195 : (documentWidth - 180) / (on_channel.current.length + 2)); // unmountComponentAtNode(panel);
+  };
+
+  var foldUnfold = function foldUnfold(index) {
+    var panel = document.getElementsByClassName("chat_panel")[index];
+    console.log(777);
+
+    if (panel.children[1].style.display == "block" || panel.children[1].style.display == "") {
+      for (var i = 1; i < panel.children.length; i++) {
+        panel.children[i].style.display = "none";
+      }
+    } else {
+      for (var _i2 = 1; _i2 < panel.children.length; _i2++) {
+        panel.children[_i2].style.display = "block";
+        showMessages(index);
+      }
+    }
+
+    setRoomData(_toConsumableArray(on_channel.current));
+    adjustChatPanel(); // adjustChatPanel()
+  };
+
+  var runChat = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4(username) {
+      var documentWidth;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              // creating chatpanel
+              documentWidth = $(document).width();
+
+              if ((documentWidth - 180) / (on_channel.current.length + 2) < 50) {
+                setRoomData([].concat(_toConsumableArray(room.slice(1, on_channel.current.length)), [[username]]));
+              } else {
+                setRoomData([].concat(_toConsumableArray(room), [[username]]));
+                console.log(on_channel.current);
+              }
+
+              setWidthOfChatPanel((documentWidth - 180) / (on_channel.current.length + 2) > 195 ? 195 : (documentWidth - 180) / (on_channel.current.length + 2));
+              setTopOfChatPanel([].concat(_toConsumableArray(room), [[username]])); // adjustFriendList()
+              // console.log(channel_on.current)
+
+            case 4:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function runChat(_x3) {
+      return _ref4.apply(this, arguments);
+    };
+  }(); //---------------------------------------------------adjusting--------------------------------------------------------
+
+
+  var adjustWidth = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      var index;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              // adjust aby sa chat panel prispôsoboval poctu kolko ich je
+              console.log(allmessages);
+              console.log("width of chat panel adjusted");
+              $(".chat_panel").css("width", widthOfChatPanel); // adjust width of NameContainer to CrossContainer to have sufficient place
+
+              for (index = 0; index < room.length; index++) {
+                console.log(0.2 * widthOfChatPanel < 17);
+
+                if (0.2 * widthOfChatPanel < 17) {
+                  $(".namecontainer").slice(index, index + 1).css("max-width", 31 + "px");
+                } else {
+                  $(".namecontainer").slice(index, index + 1).css("max-width", 80 + "%");
+                }
+              }
+
+            case 4:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function adjustWidth() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
   var adjustChatPanel = function adjustChatPanel() {
     // adjust aby ChatContainer bol vzdy na bottom:0
     console.log("ChatContainer top adjusted");
     console.log("-------------------------------------");
+    $(".chat_panel").css("display", "block");
 
     for (var index = 0; index < $(".chat_panel").length; index++) {
       var chatpanelHeight1 = $(".chat_panel").slice(index, index + 1).css("height");
@@ -2963,41 +3141,18 @@ var Chat = function Chat(props) {
     }
   };
 
-  var sendMessageHandler = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(e, to) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              console.log(to);
+  var adjustFriendList = function adjustFriendList() {
+    // adjust aby bol friendlist vzdy na bottom:0
+    console.log("Friendlist top adjusted");
+    var heightFriendList = $(".friendlist").css("height");
+    console.log(users);
+    var heightUser = users.length * 38; // 38-vyska jedneho frienda
 
-              if (!(e.charCode === 13)) {
-                _context3.next = 5;
-                break;
-              }
+    var top = parseInt(heightFriendList) - (heightUser + 28); //28-výška Friend_h1
 
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/sendMessage", {
-                "message": message,
-                "from": props.tsid,
-                "to": to[0]
-              });
-
-            case 4:
-              messageRef.current.value = "";
-
-            case 5:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function sendMessageHandler(_x, _x2) {
-      return _ref3.apply(this, arguments);
-    };
-  }(); // --------------------------------------------------------------------------------------------------------------------
+    console.log(top);
+    $(".users").css("top", top + "px");
+  }; // -----------------------------------------------------useEffects---------------------------------------------------------------
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
@@ -3006,106 +3161,38 @@ var Chat = function Chat(props) {
   });
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     fetchMessages();
-    getUsers();
+    retrieveUsers();
   }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    retrieveMessages();
+  }, [users]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    adjustChatPanel();
+  }, [topOfChatPanel]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    showMessages(room.length - 1);
+  }, [room]);
 
-  var adjustFriendList = function adjustFriendList() {
-    // adjust aby bol friendlist vzdy na bottom:0
-    console.log("Friendlist top adjusted");
-    var heightFriendList = $(".friendlist").css("height");
-    var heightUser = users.length * 38; // 38-vyska jedneho frienda
+  var retrieveUsers = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      var url, _yield$axios$post2, data;
 
-    var top = parseInt(heightFriendList) - (heightUser + 28); //28-výška Friend_h1
-    // if (on_channel.current.length <2){
-
-    console.log(top);
-    $(".users").css("top", top + "px"); // setheightOfFriendList(top)
-    // }
-  };
-
-  var getUsers = /*#__PURE__*/function () {
-    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-      var url, _yield$axios$post, data;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context6.prev = _context6.next) {
             case 0:
-              url = "/api/get_users";
-              _context4.next = 3;
+              url = "/api/retrieve_users";
+              _context6.next = 3;
               return axios__WEBPACK_IMPORTED_MODULE_3___default().post(url, {
                 'current_user': props.tsid
               });
 
             case 3:
-              _yield$axios$post = _context4.sent;
-              data = _yield$axios$post.data;
+              _yield$axios$post2 = _context6.sent;
+              data = _yield$axios$post2.data;
               setUsers(data.user);
 
             case 6:
-            case "end":
-              return _context4.stop();
-          }
-        }
-      }, _callee4);
-    }));
-
-    return function getUsers() {
-      return _ref4.apply(this, arguments);
-    };
-  }();
-
-  var logOut = /*#__PURE__*/function () {
-    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
-      var _yield$axios$post2, res;
-
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
-        while (1) {
-          switch (_context5.prev = _context5.next) {
-            case 0:
-              _context5.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/logout", {
-                a: "la"
-              });
-
-            case 2:
-              _yield$axios$post2 = _context5.sent;
-              res = _yield$axios$post2.res;
-              window.location.assign("/login");
-
-            case 5:
-            case "end":
-              return _context5.stop();
-          }
-        }
-      }, _callee5);
-    }));
-
-    return function logOut() {
-      return _ref5.apply(this, arguments);
-    };
-  }();
-
-  var runChat = /*#__PURE__*/function () {
-    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(username) {
-      var documentWidth;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
-        while (1) {
-          switch (_context6.prev = _context6.next) {
-            case 0:
-              documentWidth = $(document).width();
-
-              if ((documentWidth - 180) / (on_channel.current.length + 2) < 50) {
-                setRoomData([].concat(_toConsumableArray(room.slice(1, on_channel.current.length)), [[username]]));
-              } else {
-                setRoomData([].concat(_toConsumableArray(room), [[username]]));
-              }
-
-              setWidthOfChatPanel((documentWidth - 180) / (on_channel.current.length + 2) > 195 ? 195 : (documentWidth - 180) / (on_channel.current.length + 2));
-              adjustChatPanel(); // adjustFriendList()
-              // console.log(channel_on.current)
-
-            case 4:
             case "end":
               return _context6.stop();
           }
@@ -3113,68 +3200,104 @@ var Chat = function Chat(props) {
       }, _callee6);
     }));
 
-    return function runChat(_x3) {
+    return function retrieveUsers() {
       return _ref6.apply(this, arguments);
     };
   }();
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Welcome, {
-      children: ["Hi ", props.tsid]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Logout, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-        onClick: function onClick() {
-          return logOut();
-        },
-        children: "Log out"
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.FriendList, {
-      className: "friendlist",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friends, {
-        className: "users",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friends_h1, {
-          children: "Friends"
-        }), " ", usersRef.current.map(function (data, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friend, {
-            type: "none",
-            onClick: function onClick() {
-              return runChat(data.username);
-            },
-            children: data.username
-          }, index);
-        })]
-      }), on_channel.current.map(function (data, index) {
-        return (
-          /*#__PURE__*/
-          // ---------------------------------------------------------------------------------------------------------------------------------------
-          (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Chat_panel, {
-            className: "chat_panel",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.NameUserUWriteTo, {
+  var logOutUser = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+      var _yield$axios$post3, res;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/logout", {
+                a: "la"
+              });
+
+            case 2:
+              _yield$axios$post3 = _context7.sent;
+              res = _yield$axios$post3.res;
+              window.location.assign("/login");
+
+            case 5:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }));
+
+    return function logOutUser() {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
+  if (Object.keys(allmessRef.current).length == users.length && Object.keys(allmessRef.current).length > 1) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Welcome, {
+        children: ["Hi ", props.tsid]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Logout, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+          onClick: function onClick() {
+            return logOutUser();
+          },
+          children: "Log out"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.FriendList, {
+        className: "friendlist",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friends, {
+          className: "users",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friends_h1, {
+            children: "Friends"
+          }), " ", usersRef.current.map(function (data, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Friend, {
+              type: "none",
               onClick: function onClick() {
-                foldUnfold(index);
+                return runChat(data.username);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.NameContainer, {
-                children: data
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.CrossContainer, {
-                onClick: function onClick() {
-                  return removeChannel(index);
+              children: data.username
+            }, index);
+          })]
+        }), on_channel.current.map(function (data, index) {
+          return (
+            /*#__PURE__*/
+            // ---------------------------------------------------------------------------------------------------------------------------------------
+            (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Chat_panel, {
+              className: "chat_panel",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.NameUserUWriteTo, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.NameContainer, {
+                  className: "namecontainer",
+                  onClick: function onClick() {
+                    foldUnfold(index);
+                  },
+                  children: data
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.CrossContainer, {
+                  onClick: function onClick() {
+                    return removeChannel(index);
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Cross, {})
+                }), " "]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.MessagesContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.SendMessage, {
+                ref: messageRef,
+                onKeyPress: function onKeyPress(e) {
+                  return sendMessageHandler(e, data);
                 },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.Cross, {})
+                onChange: function onChange() {
+                  return _onChange();
+                }
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.MessagesContainer, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_style_chat_js__WEBPACK_IMPORTED_MODULE_2__.SendMessage, {
-              ref: messageRef,
-              onChange: function onChange() {
-                return _onChange();
-              },
-              onKeyPress: function onKeyPress(e) {
-                return sendMessageHandler(e, data);
-              }
-            })]
-          }, index)
-        );
+            }, index)
+          );
+        })]
       })]
-    })]
-  });
+    });
+  } else {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {});
+  }
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Chat);
@@ -3706,15 +3829,15 @@ var _templateObject, _templateObject2, _templateObject3, _templateObject4, _temp
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var Friend = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.li(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding:10px;\n  color:blue;\n  position:relative;\n  "])));
+var Friend = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.li(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  padding:0px 10px 10px 10px;\n  box-sizing:border-box;\n  border:1px solid rgb(210,210,210);\n  line-height:15px;\n  color:blue;\n  position:relative;\n  height:38px;\n  overflow:hidden;\n  "])));
 var Welcome = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  color:red;\n  font-size:15px;\n"])));
 var FriendList = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  position:absolute;\n  right:0;\n  bottom:0;\n  width:100%;\n  box-sizing: border-box;\n\n\n\n  "])));
-var Friends = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  background-color: rgb(250,250,250);\n  color:red;\n  position:relative;\n  bottom:0;\n  float:right;\n  width:180px;\n\n  "])));
+var Friends = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  background-color: rgb(250,250,250);\n  color:red;\n  position:relative;\n  bottom:0;\n  float:right;\n\n  width:180px;\n\n  "])));
 var Logout = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  position:fixed;\n  top:0;\n  right:0;\n  padding:10px;\n  background-color:rgb(100,100,100)\n\n  "])));
-var Chat_panel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  box-sizing:border-box;\n  background-color: white;\n  border:1px solid black;\n  position:relative;\n  float:right;\n  width:0px;\n\n  min-width:50px;\n\n\n\n"])));
+var Chat_panel = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  box-sizing:border-box;\n  background-color: white;\n  border:1px solid black;\n  position:relative;\n  float:right;\n  width:0px;\n  display:none;\n  min-width:50px;\n\n\n\n"])));
 var NameUserUWriteTo = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.h1(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  margin:0px;\n  font-size:20px;\n  height:29px;\n  border-style:none none solid none;\n  border-color:black;\n  border-width:1px;\n\n\n"])));
-var NameContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  max-width:50%;\n  overflow:hidden;\n  max-height:27px;\n  float:left;\n\n"])));
-var MessagesContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  height:234px;\n  \n  "])));
+var NameContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  max-width:80%;\n\n  overflow:hidden;\n  max-height:27px;\n  float:left;\n\n"])));
+var MessagesContainer = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  height:234px;\n  overflow:scroll;\n\n  "])));
 var SendMessage = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.input(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  margin:0px;\n  box-sizing:border-box;\n  width:100%;\n\n  "])));
 var Friends_h1 = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  padding:5px;\n\n"])));
 var Cross = styled_components__WEBPACK_IMPORTED_MODULE_0__.default.div(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  &{\n    position:relative;\n    top:14px;\n    width:17px;\n    height:1px;\n    background:black;\n    padding:0;\n    margin:0;\n    transform:rotate(45deg)\n  }\n  &:after {\n    content:\"\";\n    width:17px;\n    position:absolute;\n    height:1px;\n    background:black;\n    padding:0;\n    margin:0;\n    transform:rotate(90deg)\n  }\n"])));

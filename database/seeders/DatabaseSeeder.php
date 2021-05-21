@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(15)->create();
+        for ($index=0;$index<3;$index++){
+          \App\Models\Message::factory(1)->from_user()->to_user()->create();
+       }
     }
 }

@@ -7,6 +7,8 @@ use App\Models\User;
 class TestController extends Controller
 {
     public function test(){
-      User::factory()->count(5)->create();
+      $array = collect([1,2,3])->map(function($data){return $data**2;})->reject(function($data){return $data==1;});
+      print_r($array);
+      return view("quiz");
     }
 }

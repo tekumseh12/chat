@@ -32,10 +32,10 @@ class ChatMessagesController extends Controller
 
 
     }
-    public function getUsers(Request $request){
+    public function retrieveUsers(Request $request){ // function returns array of all friends
       $user = $request->current_user;
       try {
-        $users = User::where("username", "<>",  $user)->get();
+        $users = User::select("username")->where("username", "<>",  $user)->get();
         return  response()->json([
           'user' => $users
         ],200);
@@ -45,6 +45,11 @@ class ChatMessagesController extends Controller
         ],500);
       }
 
+    }
+    public function retrieveMessages(Request $request){
+      $array = array($request->current_user,$request->target_user);
+      $messages = Message::whereIn("from_user", $array)->whereIn("to_user", $array)->orderBy("created_at")->limit(10)->select("message","from_user")->get();
+      return response()->json(["messages"=>$messages],200);
     }
 }
 

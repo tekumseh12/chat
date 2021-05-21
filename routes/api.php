@@ -21,4 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('sendMessage',[ChatMessagesController::class, "sendMessage"]);
 Route::post('logout',[ChatMessagesController::class, "logOut"]);
-Route::post('get_users',[ChatMessagesController::class, "getUsers"]);
+Route::post('retrieve_users',[ChatMessagesController::class, "retrieveUsers"]);
+Route::post('retrieveMessages',[ChatMessagesController::class, "retrieveMessages"]);

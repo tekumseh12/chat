@@ -1,9 +1,14 @@
 import styled, {css}  from 'styled-components'
 
 export const Friend = styled.li`
-  padding:10px;
+  padding:0px 10px 10px 10px;
+  box-sizing:border-box;
+  border:1px solid rgb(210,210,210);
+  line-height:15px;
   color:blue;
   position:relative;
+  height:38px;
+  overflow:hidden;
   `;
 export const Welcome = styled.h1`
   color:red;
@@ -25,6 +30,7 @@ export const Friends = styled.div `
   position:relative;
   bottom:0;
   float:right;
+
   width:180px;
 
   `;
@@ -43,7 +49,7 @@ export const Chat_panel = styled.div`
   position:relative;
   float:right;
   width:0px;
-
+  display:none;
   min-width:50px;
 
 
@@ -60,7 +66,8 @@ export const NameUserUWriteTo = styled.h1 `
 
 `
 export const NameContainer = styled.div`
-  max-width:50%;
+  max-width:80%;
+
   overflow:hidden;
   max-height:27px;
   float:left;
@@ -68,7 +75,8 @@ export const NameContainer = styled.div`
 `
 export const MessagesContainer = styled.div `
   height:234px;
-  
+  overflow:scroll;
+
   `
 
 export const SendMessage = styled.input`
